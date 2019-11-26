@@ -1,0 +1,46 @@
+<body>
+	<div class="wrapper fadeInDown">
+	  <div id="formContent">
+		<h5 style="margin-top:50px;margin-block-start: 10px;"><b>Vehicle Registration System</b></h5>
+		<!-- <div class="alert alert-info mt-5 ml-5 mr-5" *ngIf="this.foodService.clickedOnAdd">Please login before adding an
+		  item to cart.</div> -->
+  
+		<form [formGroup]="loginForm" (submit)="this.authService.authenticateUser(loginForm.value)">
+		  <div class="row mt-5 ml-5 mr-5">
+			<div class="mx-auto mb-2"><strong>Login</strong></div>
+			<p class="center alert alert-danger" style="margin-top:15px;text-align:center" *ngIf="flag==true"> MemberID or
+			  Password cannot be empty</p>
+			<div class="col-12">
+			  <label for="username">Username</label>
+			  <input type="text" class="form-control" placeholder="Enter Username" formControlName="username"
+				id="username" ngModel required>
+			  <div class="text-danger" *ngIf="username.touched && username.invalid && username.errors.required">Username
+				is required</div>
+			</div>
+		  </div>
+		  <div class="row ml-5 mr-5">
+			<div class="col-12 mt-5">
+			  <label for="password">Password</label>
+			  <input type="password" class="form-control" placeholder="Enter Password" formControlName="password"
+				id="password" ngModel required>
+			  <div class="text-danger" *ngIf="password.touched && password.invalid && password.errors.required">Password
+				is required</div>
+			</div>
+		  </div>
+		  <div class="row mt-5 ml-5 mr-5 mb-5">
+			<div class="col-6">
+			  <button type="submit" class="btn signup-btn">Login</button>
+			</div>
+			<div class="col">
+			  <div>
+				New Here? <a (click)="toSignup()">Signup</a>
+			  </div>
+			</div>
+		  </div>
+		</form>
+  
+  
+  
+	  </div>
+	</div>
+  </body>

@@ -1,0 +1,23 @@
+<div class="container">
+
+      <h1>Cart</h1>
+      <div >
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let cart of this.cartService.cart.menuItemList">
+          <div class="dol-col text-muted">{{cart.name}}
+            <span class="price-color right">{{cart.price | currency:'INR'}}</span>
+          </div>
+          <p>
+            <a (click)="removeFromCart(cart.id)"><i
+              class="material-icons right dol-col">delete_forever</i></a>
+          </p>
+        </li>
+        <li class="list-group-item" ><div class="dol-col "><p class="big-text">Total<span class="price-color right">
+          {{this.cartService.cart.total | currency:'INR'}}
+        </span></p>
+          </div></li>
+        </ul>
+        </div>
+      </div>
+ 
+

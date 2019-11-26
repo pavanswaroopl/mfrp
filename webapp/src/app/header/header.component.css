@@ -1,0 +1,75 @@
+.navbar {
+    background: rgb(4,2,27);
+    background: linear-gradient(90deg, rgba(4,2,27,1) 14%, rgba(46,46,148,1) 100%, rgba(6,34,116,1) 100%);
+    z-index: 10000;
+}
+.material-icons{
+    vertical-align:middle;
+    color:white;
+    
+}
+.vertical-align{
+vertical-align: middle;
+color:white;
+}
+.align{
+    vertical-align: text-top;
+}
+.edit{
+    background-color: orangered;
+    color:white;
+}
+.right{
+    float: right;
+
+}
+.blue{
+    color:blue;
+}
+
+.price-color{
+    color: brown;
+}
+.white-color{
+color:white;
+}
+.dol-col{
+    color:dimgray;
+}
+.jumbotron{
+    background-image: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+    background-size: cover;
+    background-blend-mode:normal;
+    background-position: center;
+    height: auto;
+    width: 100%;
+}
+.black-color{
+    color:black;
+}
+.save-color{
+    background-color:orangered;
+    color:white;
+    
+}
+.edit-alert{
+    background-color: aquamarine;
+    color:mediumseagreen;
+}
+.card{
+    width: 80rem;
+    max-height: 40rem;
+    max-width: 22rem;
+}
+.login-card{
+    width: 35rem;
+    max-height: 35rem;
+}
+.big-text{
+    font-size: 25px;
+    color:black;
+}
+.validate .invalid-feedback
+{
+    display: block;
+}

@@ -1,0 +1,47 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+        <h1 class="navbar-brand">
+            <span class="vertical-align"><i class="material-icons ">local_car_wash</i>Vehicle Reservation</span>
+        </h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav  ml-auto">
+                    <li class="nav-item active">
+                              <a class="nav-link"	(click)="clickOnAddCart()" routerLink="search-bar/">Vehicle Menu</a>
+                          </li>
+                          <li class="nav-item active" *ngIf="loggedIn() && !this.foodService.isAdmin">
+                              <a class="nav-link" routerLink="cart/">Cart</a>
+                          </li>
+                    <li class="nav-item active nav-link" *ngIf="loggedIn()">
+                              <i class="material-icons other_icon">person </i> {{this.authService.loggedInUser}}
+                          </li>
+                    <li class="nav-item active" *ngIf="loggedIn()" (click)="this.authService.logout()">
+                              <a class="nav-link" routerLink="search-bar/">Logout</a>
+                          </li>
+                    <li class="nav-item active" (click)="clickOnAddCart()" *ngIf="!loggedIn()">
+                              <a class="nav-link" routerLink="login/">Login</a>
+                          </li>
+                    <li class="nav-item active" (click)="clickOnAddCart()" *ngIf="!loggedIn()">
+                              <a class="nav-link" routerLink="signup/">Signup</a>
+                          </li>
+                        </ul>
+
+        </div>
+    </nav>
+</header>
+
+<footer class="navbar fixed-bottom pb-2 pt-3">
+    <h5 class="vertical-align">Copyright 2019</h5>
+
+    </footer>

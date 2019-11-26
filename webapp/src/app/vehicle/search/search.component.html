@@ -1,0 +1,24 @@
+
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    </head>
+<div class="jumbotron">
+        <span class="white-color">
+            <h1>Find Food</h1>
+        </span>
+        <div class="input-group">
+            <div class="input-gourp-pretend">
+                <span class="input-group-text lighten-3" id="basic-text1">
+                    <i class="material-icons black-color">free_breakfast</i>
+                </span>
+            </div>
+            <input type="text" placeholder="Search" name="search" class="form-control" (keyup)="search($event)">
+        </div>
+    </div>
+    <app-menu [foodItem]="filterlist"></app-menu>

@@ -1,0 +1,125 @@
+<div class="container-fluid mb-5 pb-5">
+  <div class="row justify-content-center">
+    <div class="card ml-2 mr-2 mt-4 shadow">
+      <div class="pt-4 pl-3 ">
+        <h2>Signup</h2>
+      </div>
+      <form [formGroup]="signUpForm" (submit)="this.userService.addUser(signUpForm.value)">
+        <div class="card-body">
+          <div class="row mt-md-0">
+            <div class="alert-danger col-12 px-auto" *ngIf="!this.userService.userExist">
+              Member Id already exists
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <label for="memberID">Member Id</label>
+              <input type="text" class="form-control" placeholder="Enter MemberId" formControlName="memberId"
+                id="memberId">
+              <div class="text-danger" *ngIf="memberId.invalid && memberId.errors.required && memberId.touched">MemberId
+                is required</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-6  mt-0 mt-md-0">
+              <label for="firstname">First Name</label>
+              <input type="text" class="form-control" placeholder="Enter First Name" formControlName="firstname"
+                id="firstname">
+              <div class="text-danger" *ngIf="firstname.invalid && firstname.errors.required && firstname.touched">First
+                Name is required</div>
+            </div>
+            <div class="col-md-6  mt-3 mt-md-0">
+              <label for="lastname">Last Name</label>
+              <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="lastname"
+                id="lastname">
+              <div class="text-danger" *ngIf="lastname.invalid && lastname.errors.required && lastname.touched">Last
+                Name is required</div>
+            </div>
+          </div>
+          <div class="form-group row">
+              <div class="col-md-6  mt-0 mt-md-0">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" placeholder="Enter Password" formControlName="password"
+                    id="password">
+                  <div class="text-danger" *ngIf="password.invalid && password.errors.required && password.touched">Password
+                    is required</div>
+                </div>
+            <div class="col-md-6  mt-0 mt-md-0">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" class="form-control" placeholder="Enter Confirm Password"
+                formControlName="confirmPassword" id="confirmPassword">
+              <div class="text-danger"
+                *ngIf="confirmPassword.invalid && confirmPassword.errors.required && confirmPassword.touched">Confirm
+                the Password</div>
+              <div class="text-danger" *ngIf="signUpForm.get('confirmPassword').hasError('nomatch')">Password and
+                Confirm Password do not match</div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+              <div class="col-md-6  mt-0 mt-md-0">
+                  <label for="age"><b>Age</b></label>
+              <input required type="text" name="age" 
+               id="age" class="form-control" pattern="^([1-9]|[1-8][0-9]|9[0-9]|100)$" placeholder="Enter age" formControlName="age">
+              <span class="help-block text-danger" *ngIf="age.invalid && age.touched">
+                     Age is Required
+              </span>
+                </div>
+            <div class="col-md-6  mt-0 mt-md-0">
+              <div class="form-check-inline">
+                  <label class="form-check-label">
+                      <label for="gender"><b>Enter your Gender</b></label><br>
+                      <input type="radio" class="form-check-input" id="gender" name="gender" value="Yes" formControlName="gender" >Male <br>
+                      <input type="radio" class="form-check-input" id="gender" name="gender"  value="No" formControlName="gender">Female<br/><br>
+                  </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+              <div class="col-md-6  mt-0 mt-md-0">
+                  <label for="contactNo"><b>Contact Number</b></label>
+                            <input  required type="tel" name="contactNo" formControlName="contactNo"
+                             id="contactNo" class="form-control" pattern="^[1-9]{2}[0-9]{8}$" placeholder="Enter your contact number" >
+                            <span class="help-block text-danger" *ngIf="contactNo.invalid && contactNo.touched">
+                                contactNumber is Required
+                                  </span>
+                </div>
+            <div class="col-md-6  mt-0 mt-md-0">
+              <label for="email"><b>E-Mail ID</b></label>
+              <input required type="email" name="email" formControlName="email"
+               id="email" class="form-control" pattern="^[a-z0-9][-a-z0-9._]+@([-a-z0-9]+\.)+[a-z]{2,5}$" placeholder="Enter your Email ID" >
+              <span class="help-block text-danger" *ngIf="email.invalid && email.touched">
+                      Email is Required
+                        </span>
+            </div>
+          </div>
+
+          <div class="form-group row">
+              <div class="col-md-6  mt-0 mt-md-0">
+                  <label for="branch"><b>Branch</b></label>
+                                <input required type="text" name="branch" formControlName="branch"
+                                     id="lastname" class="form-control" pattern="[A-Za-z ]+" placeholder="Enter branch" >
+                                     <span class="help-block text-danger" *ngIf="branch.invalid && branch.touched">
+                                         Branch is Required
+                                      </span>
+                </div>
+            <div class="col-md-6  mt-0 mt-md-0">
+              <label for="roles"><b>Role</b></label>
+    
+                            <select class="form-control" id="roles" name="roles" formControlName="roles">
+                                <option>User</option>
+                                <option>Admin</option>
+    
+                            </select>
+            </div>
+          </div>
+
+          <div class="form-group row mt-4 ">
+            <div class="col-6 mr-auto">
+              <button type="submit" class="btn edit" [disabled]="!signUpForm.valid" >Signup</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

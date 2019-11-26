@@ -1,0 +1,53 @@
+
+<div class="card mr-3 mt-3 ml-3 h-5">
+    <img class="card-img-top"
+        src={{foodItem.image}}
+        alt="Product">
+    <div class="row">
+        <div class="col-8 ml-1 mt-2">
+            <h4 class="card-title">&nbsp; {{foodItem.name}}</h4>
+        </div>
+        <div class="ml-auto mr-4 mt-2">
+            <h4 class="price-color">{{foodItem.price | currency:'INR'}} &nbsp;</h4>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-8 ">
+                <span class="badge badge-success" *ngIf="foodItem.active">Active</span>{{foodItem.category}} &nbsp;
+            </div>
+            <div class="ml-auto mr-4">
+                <span class="badge badge-info right" *ngIf="foodItem.freeDelivery">Free</span><i
+                    class="material-icons blue right" *ngIf="foodItem.freeDelivery">local_shipping</i>
+            </div>
+        </div>
+        <div class="row text-muted">
+            <div class="col-6 mt-3">
+                <div>
+                    <i class="material-icons dol-col">access_time</i>Launch
+                </div>
+                <div>{{foodItem.dateOfLaunch|date:'M/dd/yyyy'}}</div>
+            </div>
+            <!-- <div class="ml-auto pr-2 mt-4 " *ngIf='!isAdmin && this.authService.loggedIn' >
+                <a class="right"><button type="button" class="btn edit" (click)="addToCartClicked.emit(foodItem.id)">
+                    <i class="material-icons">add_shopping_cart</i>Add to cart
+                  </button> </a>
+              </div> -->
+              <div class="ml-auto pr-2 mt-4 " *ngIf='!isAdmin' >
+                <a class="right"><button type="submit" class="btn edit" (click)="this.foodService.addToCart(foodItem.id)">
+                    <i class="material-icons">add_shopping_cart</i>Add to cart
+                  </button> </a>
+              </div>
+              <div class="ml-auto pr-2 mt-4 ">
+                <a class="right"><button type="submit" class="btn edit" routerlink="details/">
+                    <i class="material-icons">dehaze</i>Details
+                  </button> </a>
+              </div>
+            <div class="ml-auto pr-2 mt-4" *ngIf='isAdmin' >
+                <a class="right"><button type="button" class="btn edit" [routerLink]="['/edit-food-item',foodItem.id]" >
+                    <i class="material-icons">edit</i>Edit
+                  </button> </a>
+              </div>
+        </div>
+    </div>
+</div>
